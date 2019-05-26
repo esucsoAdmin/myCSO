@@ -117,6 +117,7 @@ export default createAppContainer(
                 activeBackgroundColor: 'black',
                 inactiveBackgroundColor: 'black',
             },
+            initialRouteName: 'Home',
         }
     )
 );
