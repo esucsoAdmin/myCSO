@@ -1,73 +1,13 @@
 import React from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {createAppContainer, createBottomTabNavigator} from "react-navigation";
-
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
-
-class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to React Native!</Text>
-                <Text style={styles.welcome}>Let's make the CSO app!</Text>
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
-            </View>
-        )
-    }
-}
-
-class RedScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container2}>
-                <Text style={styles.welcome}>Welcome to React Native!</Text>
-                <Text style={styles.welcome}>Let's make the CSO app!</Text>
-                <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
-
-            </View>
-        )
-    }
-}
-
-class AboutScreen extends React.Component {
-    render() {
-        return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>About the CSO!</Text>
-            </View>
-        );
-    }
-}
-
-class AccountScreen extends React.Component {
-    render() {
-        return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>Your Account!</Text>
-            </View>
-        );
-    }
-}
-
-class SettingsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text>All the settings you need!</Text>
-            </View>
-        );
-    }
-}
+import HomeScreen from './screens/HomeScreen';
+import InventoryScreen from './screens/InventoryScreen';
+import AboutScreen from './screens/AboutScreen';
+import AccountScreen from './screens/AccountScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
     const {routeName} = navigation.state;
@@ -100,7 +40,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
 
 export default createAppContainer(
     createBottomTabNavigator({
-            Inventory: {screen: RedScreen},
+            Inventory: {screen: InventoryScreen},
             About: {screen: AboutScreen},
             Home: {screen: HomeScreen},
             Account: {screen: AccountScreen},
@@ -113,7 +53,7 @@ export default createAppContainer(
             }),
             tabBarOptions: {
                 activeTintColor: '#00ff07',
-                inactiveTintColor: 'grey',
+                inactiveTintColor: '#9fa2a6',
                 activeBackgroundColor: 'black',
                 inactiveBackgroundColor: 'black',
             },
@@ -121,40 +61,3 @@ export default createAppContainer(
         }
     )
 );
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 2,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-        alignItems: 'baseline',
-        alignContent: 'space-around',
-        backgroundColor: '#3b9044',
-        borderTopWidth: 60,
-        borderTopColor: '#444444'
-    },
-    container2: {
-        flex: 2,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly',
-        alignItems: 'baseline',
-        alignContent: 'space-around',
-        backgroundColor: '#901e1e',
-        borderTopWidth: 60,
-        borderTopColor: '#444444'
-    },
-    welcome: {
-        borderWidth: 20,
-        borderColor: '#444444',
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 'auto',
-    },
-    instructions: {
-        textAlign: 'left',
-        color: '#333333',
-        margin: 'auto',
-    },
-});
