@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, Text, View} from "react-native";
-import styles from '../styles/InventoryScreenStyleSheet';
+import styles from '../styles/InventoryStyleSheet';
 import headerStyles from '../styles/HeaderStyleSheet';
 import {Header} from "react-native-elements";
 
