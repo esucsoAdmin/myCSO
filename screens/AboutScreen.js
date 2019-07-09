@@ -3,35 +3,8 @@ import {Text, View, ScrollView} from "react-native";
 import headerStyles from "../styles/HeaderStyleSheet";
 import {Header, Card, Button, ThemeProvider} from "react-native-elements";
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import theme from '../styles/GreenBlackTheme';
 
-const theme = {
-
-    Button: {
-        raised: true,
-        titleStyle: {
-            color: 'black',
-        },
-        buttonStyle: {
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-            backgroundColor: 'grey',
-        }
-    },
-    Card: {
-        titleStyle: {
-            color: '#00ff07',
-        },
-        containerStyle: {
-            backgroundColor: '#000'
-        },
-    },
-    FontAwesome5Icon: {
-        raised: true,
-        color: 'black',
-    },
-};
 
 class AboutScreen extends React.Component {
     render() {
@@ -41,7 +14,7 @@ class AboutScreen extends React.Component {
                     leftComponent={{text: 'About', style: headerStyles.header}}
                     containerStyle={headerStyles.headerContainer}
                 />
-                <ScrollView showsVerticalScollIndicator={false} style={{backgroundColor: 'grey'}}>
+                <ScrollView showsVerticalScollIndicator={false} style={{backgroundColor: '#9fa2a6'}}>
                     <ThemeProvider theme={theme}>
                         <Card
                             title='Raspberry Pi - Projects'

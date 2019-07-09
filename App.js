@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {createAppContainer, createBottomTabNavigator} from "react-navigation";
@@ -8,6 +7,7 @@ import InventoryScreen from './screens/InventoryScreen';
 import AboutScreen from './screens/AboutScreen';
 import AccountScreen from './screens/AccountScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import RaspberryPiScreen from './screens/RaspberryPiScreen';
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
     const {routeName} = navigation.state;
@@ -45,6 +45,7 @@ export default createAppContainer(
             Home: {screen: HomeScreen},
             Account: {screen: AccountScreen},
             Settings: {screen: SettingsScreen},
+            //RaspberryPi: {screen: RaspberryPiScreen},
         },
         {
             defaultNavigationOptions: ({navigation}) => ({
