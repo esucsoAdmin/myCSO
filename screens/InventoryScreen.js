@@ -16,7 +16,8 @@ class InventoryScreen extends React.Component {
                 <ScrollView showsVerticalScollIndicator={false} style={{backgroundColor: '#9fa2a6'}}>
                     <ThemeProvider theme={theme}>
                         <Card
-                            title='Rent a Raspberry Pi'>
+                            title='Rent a Raspberry Pi'
+                            image={require('../resources/images/raspberry_close_up.jpg')}>
                             <Text h3>5 model 3</Text>
                             <Text h3>2 model 2</Text>
                             <Text h3>3 SD cards</Text>
