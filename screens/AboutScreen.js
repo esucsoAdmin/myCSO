@@ -4,10 +4,13 @@ import headerStyles from "../styles/HeaderStyleSheet";
 import {Header, Card, Button, ThemeProvider} from "react-native-elements";
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import theme from '../styles/GreenBlackTheme';
+import generateCard from '../component-generators/CardGenerator';
 
 
 class AboutScreen extends React.Component {
+
     render() {
+        let imagePath = '../resources/images/raspberrypi_edited.jpg';
         return (
             <View style={headerStyles.container}>
                 <Header
@@ -16,6 +19,12 @@ class AboutScreen extends React.Component {
                 />
                 <ScrollView showsVerticalScollIndicator={false} style={{backgroundColor: '#9fa2a6'}}>
                     <ThemeProvider theme={theme}>
+
+                        {generateCard('Raspberry Pi - Projects', require(imagePath), {marginBottom: 10, color: '#00ff07'},
+                            'With 5 Raspberry Pi model B+ and 2 Raspberry Pi model 2 you can be sure we have tons of ' +
+                            'different projects to work on and explore!', 'View Projects    ', 'binoculars')}
+
+
                         <Card
                             title='Raspberry Pi - Projects'
                             image={require('../resources/images/raspberrypi_edited.jpg')}>
@@ -30,7 +39,6 @@ class AboutScreen extends React.Component {
                                 iconRight/>
 
                         </Card>
-
                         <Card
                             title='VR Equipped'
                             image={require('../resources/images/graphics_card_vive.jpg')}>
