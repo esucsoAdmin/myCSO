@@ -1,30 +1,33 @@
 import React from 'react';
-import {Platform, Text, View, StyleSheet} from "react-native";
-import {Header} from 'react-native-elements';
-import styles from '../styles/HomeStyleSheet';
+import {View, ScrollView} from "react-native";
+import {ThemeProvider} from 'react-native-elements';
 import headerStyles from '../styles/HeaderStyleSheet';
+import theme from "../styles/GreenBlackTheme";
+import {generateInternetCard} from "../component-generators/CardGenerator";
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
+// const instructions = Platform.select({
+//     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+//     android:
+//         'Double tap R on your keyboard to reload,\n' +
+//         'Shake or press menu button for dev menu',
+// });
 
 class HomeScreen extends React.Component {
     render() {
+        let imagePathGitHub = '../resources/images/cso_git.png';
         return (
             <View style={headerStyles.container}>
-                <Header
-                    leftComponent={{text: 'Home', style: headerStyles.header }}
-                    containerStyle={headerStyles.headerContainer}
-                />
-                <View style={styles.container}>
-                    <Text style={styles.welcome}>Welcome to React Native!</Text>
-                    <Text style={styles.welcome}>Let's make the CSO app!</Text>
-                    <Text style={styles.instructions}>To get started, edit App.js</Text>
-                    <Text style={styles.instructions}>{instructions}</Text>
-                </View>
+                <ScrollView showsVerticalScollIndicator={false} style={{backgroundColor: '#9fa2a6'}}>
+                    <ThemeProvider theme={theme}>
+                        {generateInternetCard('Follow our projects!', require(imagePathGitHub),
+                            {marginBottom: 10, color: '#00ff07'},
+                            'For an in depth look into what we do follow the development of all' +
+                            ' our projects on the CSO github page, maybe you can become a contributor!',
+                            'Visit our GitHub    ',
+                            'github', 'https://github.com/esu-cso')}
+
+                    </ThemeProvider>
+                </ScrollView>
             </View>
         )
     }
